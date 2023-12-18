@@ -42,13 +42,13 @@
 
                 <ul class="navbar-nav mb-2 mb-lg-0 mx-auto" >
                     <li class="nav-item active">
-                        <a class="nav-link px-2" href="newjsp.jsp" style="color:#0D6C5F;font-family: Josefin Sans">Home</a>
+                        <a class="nav-link px-2" href="home.jsp" style="color:#0D6C5F;font-family: Josefin Sans">Home</a>
                     </li>
                     <li class="nav-item px-2">
-                        <a class="nav-link" href="newjsp.jsp" style="color:#0D6C5F;font-family: Josefin Sans">Cart</a>
+                        <a class="nav-link" href="home.jsp" style="color:#0D6C5F;font-family: Josefin Sans">Cart</a>
                     </li>
                     <li class="nav-item px-2">
-                        <a class="nav-link" href="newjsp.jsp" style="color:#0D6C5F;font-family: Josefin Sans">Saved</a>
+                        <a class="nav-link" href="home.jsp" style="color:#0D6C5F;font-family: Josefin Sans">Saved</a>
                     </li>
                     <li class="nav-item px-2">
                         <a class="nav-link" href="" style="color:#0D6C5F;font-family: Josefin Sans">Profile</a>
