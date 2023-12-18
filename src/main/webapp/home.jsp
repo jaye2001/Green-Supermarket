@@ -14,7 +14,7 @@
         
         <script src="https://kit.fontawesome.com/b805876efb.js" crossorigin="anonymous"></script>
         
-        <link href="home.css" rel="stylesheet">
+        <link href="css/home.css" rel="stylesheet">
         <title>JSP Page</title>
     </head>
     <body>
