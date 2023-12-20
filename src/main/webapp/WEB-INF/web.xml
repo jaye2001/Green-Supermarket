@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd" id="WebApp_ID" version="6.0">
   <display-name>Green supermarket</display-name>
+  <error-page>
+    <exception-type>java.lang.Exception</exception-type>
+    <location>/error.jsp</location>
+  </error-page>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.jsp</welcome-file>
@@ -18,5 +22,25 @@
   <servlet-mapping>
     <servlet-name>PurchaseHistServlet</servlet-name>
     <url-pattern>/PurchaseHistServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>userprofileservlet</display-name>
+    <servlet-name>userprofileservlet</servlet-name>
+    <servlet-class>userprofileservlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>userprofileservlet</servlet-name>
+    <url-pattern>/userprofileservlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>productaddservlet</display-name>
+    <servlet-name>productaddservlet</servlet-name>
+    <servlet-class>productaddservlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>productaddservlet</servlet-name>
+    <url-pattern>/productaddservlet</url-pattern>
   </servlet-mapping>
 </web-app>
