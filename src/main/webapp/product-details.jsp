@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Green Super Market</title>
         <script src="https://kit.fontawesome.com/d6b58aaea7.js" crossorigin="anonymous"></script>
-        <link href="css/product-detail.css" rel="stylesheet">
+        <link href="css/product-details.css" rel="stylesheet">
          
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
