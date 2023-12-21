@@ -18,25 +18,25 @@
         <div class="form-box">
            <h1 id="title">Sign Up</h1> 
            
-           <form>
+           <form action="Login" method="get">
             <div class="input-group">
                 <div class="input-field" id="nameFieald">
                     <i class="fa-solid fa-user"></i>
-                    <input type="text" placeholder="Name">
+                    <input type="text" placeholder="Name" name="name">
                 </div>
                 <div class="input-field">
                     <i class="fa-solid fa-envelope"></i>
-                    <input type="email" placeholder="Email">
+                    <input type="email" placeholder="Email" name="email">
                 </div>
                 <div class="input-field">
                     <i class="fa-solid fa-lock"></i>
-                    <input type="password" placeholder="Password">
+                    <input type="password" placeholder="Password" name="Password">
                 </div>
                 <p>Lost password <a href="#">Click Here!</a></p>
             </div>
             <div class="btn-field">
-                <button type="button" id= "signupBtn">Sign up</button>
-                <button type="button" id= "signinBtn" class="disable">Login</button>
+                <button type="submit" id= "signupBtn">Sign up</button>
+                <button type="submit" id= "signinBtn" class="disable">Login</button>
             </div>
            </form>
         </div>
