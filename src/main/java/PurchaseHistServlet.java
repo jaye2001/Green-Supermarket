@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  * Servlet implementation class PurchaseHistServlet
@@ -35,6 +36,9 @@ public class PurchaseHistServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+		PrintWriter out = response.getWriter();
+		out.println("<html><body><b>Successfully Inserted"
+                + "</b></body></html>"); 
 	}
 
 }

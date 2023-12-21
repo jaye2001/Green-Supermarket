@@ -62,7 +62,7 @@
 
 <!-- product add form start -->
 		<div class="container p-3 " style="background-color: graytext; margin-top: 100px;">
-			<form action="productaddservlet" method="post">
+			<form action="productaddservlet" method="post" enctype="multipart/form-data">
 			<div class="container  col-12 w-auto text-center mt-3" style="">
 				<h2>Add product</h2>
 			</div>
@@ -110,7 +110,7 @@
 	</div>
 		
 			
-		</div>
+		
 
 	</body>
 </html>
