@@ -33,14 +33,5 @@
     <servlet-name>userprofileservlet</servlet-name>
     <url-pattern>/userprofileservlet</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>productaddservlet</display-name>
-    <servlet-name>productaddservlet</servlet-name>
-    <servlet-class>productaddservlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>productaddservlet</servlet-name>
-    <url-pattern>/productaddservlet</url-pattern>
-  </servlet-mapping>
+
 </web-app>
