@@ -1,10 +1,7 @@
-<%-- 
-    Document   : newjsp
-    Created on : Dec 7, 2023, 8:23:59 AM
-    Author     : Administor
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="com.green.Product"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,7 +11,7 @@
         
         <script src="https://kit.fontawesome.com/b805876efb.js" crossorigin="anonymous"></script>
         
-        <link href="css/home.css" rel="stylesheet">
+        <link href="home.css" rel="stylesheet">
         <title>JSP Page</title>
     </head>
     <body>
@@ -42,13 +39,13 @@
 
                 <ul class="navbar-nav mb-2 mb-lg-0 mx-auto" >
                     <li class="nav-item active">
-                        <a class="nav-link px-2" href="home.jsp" style="color:#0D6C5F;font-family: Josefin Sans">Home</a>
+                        <a class="nav-link px-2" href="newjsp.jsp" style="color:#0D6C5F;font-family: Josefin Sans">Home</a>
                     </li>
                     <li class="nav-item px-2">
-                        <a class="nav-link" href="home.jsp" style="color:#0D6C5F;font-family: Josefin Sans">Cart</a>
+                        <a class="nav-link" href="newjsp.jsp" style="color:#0D6C5F;font-family: Josefin Sans">Cart</a>
                     </li>
                     <li class="nav-item px-2">
-                        <a class="nav-link" href="home.jsp" style="color:#0D6C5F;font-family: Josefin Sans">Saved</a>
+                        <a class="nav-link" href="newjsp.jsp" style="color:#0D6C5F;font-family: Josefin Sans">Saved</a>
                     </li>
                     <li class="nav-item px-2">
                         <a class="nav-link" href="" style="color:#0D6C5F;font-family: Josefin Sans">Profile</a>
@@ -66,7 +63,7 @@
             </div>
                 <input type="text" placeholder="Search Product" style="width: 200px; height: 30px;border-radius: 50px; border-color: transparent; background-color: #CAEFE6;  font-family: Josefin Sans; color: #0D6C5F; text-align: center">
         </div>
-        </div>
+       
     </nav>
         
         
@@ -103,12 +100,24 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-      <div class="row" style="margin-left: 50px">
+
+	<div style="display: flex; justify-conent: space-between; flex-wrap: wrap;">
+		
+	<% 
+		if(request.getAttribute("products")== null){
+			response.sendRedirect("loadProducts");
+			
+		}else{
+			List<Product> products = (List<Product>) request.getAttribute("products"); 
+			for(Product product : products){
+				
+	%>
+      <div class="row" style="margin-left: 50px; margin-bottom: 30px;">
        <div class="col-sm-3">
         <div class="card" style="width: 18rem">
-            <img class="card-img-top" src="813hfEpmb3L.jpg" alt="Card image cap" style="border-radius: 15px">
+            <img class="card-img-top" src="img/<%= product.GetImage() %>" alt="Card image cap" style="border-radius: 15px; height: 200px; width: 18rem; object-fit: contain;">
             <div class="card-body">
-            <a href="googlr.com" class="product">link text</a>    
+            <a href="googlr.com" class="product"><%= product.GetName() %></a>    
             <div class="check d-flex flex-row-reverse" >
             <div style="position: relative; width: 10px; height: 10px; " >
                 
@@ -118,116 +127,9 @@
             </div>    
         </div>
        </div>
-       </div>    
-        <div class="col-sm-3">  
-        <div class="card" >
-            <img class="card-img-top" src="813hfEpmb3L.jpg" alt="Card image cap">
-            <div class="card-body">
-            <a href="googlr.com" class="product">link text</a>
-            <div class="check d-flex flex-row-reverse" >            
-            <div style="position: relative; width: 10px; height: 10px; " >
-                
-                <input type="checkbox" class="save-checkbox" style="position: absolute; opacity: 0;" />
-                <i class="fa-solid fa-heart" ></i>
-            </div>
-            </div>
-            </div>
-        </div>
-        </div>
-        <div class="col-sm-3">  
-        <div class="card">
-            <img class="card-img-top" src="813hfEpmb3L.jpg" alt="Card image cap">
-            <div class="card-body">
-            <a href="googlr.com" class="product">link text</a>
-            <div class="check d-flex flex-row-reverse" >            
-            <div style="position: relative; width: 10px; height: 10px; " >
-                
-                <input type="checkbox" class="save-checkbox" style="position: absolute; opacity: 0;" />
-                <i class="fa-solid fa-heart" ></i>
-            </div>
-            </div>
-             </div>
-        </div>
-        </div>
-        <div class="col-sm-3">  
-        <div class="card">
-            <img class="card-img-top" src="813hfEpmb3L.jpg" alt="Card image cap">
-            <div class="card-body">
-            <a href="googlr.com" class="product" >link text</a>
-            <div class="check d-flex flex-row-reverse" >            
-            <div style="position: relative; width: 10px; height: 10px; " >
-                
-                <input type="checkbox" class="save-checkbox" style="position: absolute; opacity: 0;" />
-                <i class="fa-solid fa-heart" ></i>
-            </div>
-            </div>
-            </div>
-        </div>
-        </div>
-      </div> 
-      <div class="row" style="margin-left: 50px; margin-top: 50px">
-       <div class="col-sm-3">
-        <div class="card">
-            <img class="card-img-top" src="813hfEpmb3L.jpg" alt="Card image cap">
-            <div class="card-body">
-            <a href="googlr.com" class="product">link text</a>
-            <div class="check d-flex flex-row-reverse" >            
-            <div style="position: relative; width: 10px; height: 10px; " >
-                
-                <input type="checkbox" class="save-checkbox" style="position: absolute; opacity: 0;" />
-                <i class="fa-solid fa-heart" ></i>
-            </div>
-            </div>
-            </div>
-        </div>
-       </div>
-        <div class="col-sm-3">  
-        <div class="card">
-            <img class="card-img-top" src="813hfEpmb3L.jpg" alt="Card image cap">
-            <div class="card-body">
-            <a href="googlr.com" class="product" >link text</a>
-            <div class="check d-flex flex-row-reverse" >            
-            <div style="position: relative; width: 10px; height: 10px; " >
-                
-                <input type="checkbox" class="save-checkbox" style="position: absolute; opacity: 0;" />
-                <i class="fa-solid fa-heart" ></i>
-            </div>
-            </div>
-             </div>
-        </div>
-        </div>
-        <div class="col-sm-3">  
-        <div class="card">
-            <img class="card-img-top" src="813hfEpmb3L.jpg" alt="Card image cap">
-            <div class="card-body">
-            <a href="googlr.com" class="product" >link text</a>
-            <div class="check d-flex flex-row-reverse" >            
-            <div style="position: relative; width: 10px; height: 10px; " >
-                
-                <input type="checkbox" class="save-checkbox" style="position: absolute; opacity: 0;" />
-                <i class="fa-solid fa-heart" ></i>
-            </div>
-            </div>
-             </div>
-        </div>
-        </div>
-        <div class="col-sm-3">  
-        <div class="card">
-            <img class="card-img-top" src="813hfEpmb3L.jpg" alt="Card image cap">
-            <div class="card-body">
-            <a href="googlr.com" class="product">link text</a>
-            <div class="check d-flex flex-row-reverse" >            
-            <div style="position: relative; width: 10px; height: 10px; " >
-                
-                <input type="checkbox" class="save-checkbox" style="position: absolute; opacity: 0;" />
-                <i class="fa-solid fa-heart" ></i>
-            </div>
-            </div>
-             </div>
-        </div>
-        </div>
-      </div> 
-
-        
+       </div> 
+   	  </div>
+  	  <%}} %>
+  	</div>  
     </body>
 </html>
