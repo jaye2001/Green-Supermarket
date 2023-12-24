@@ -14,13 +14,13 @@
 
 </head>
 
-<body style="background-color: #FAFAF6;">
-
+<body>
+<jsp:include page="/SavedServlet" />
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 	
 <!-- Navigation start -->
-	<nav class="navbar navbar-light navbar-expand-lg py-4" style="background-color:#AFD3E2;">
+	<nav class="navbar navbar-light navbar-expand-lg py-4" style="background-color:#e3f2fd;">
 		<div class="container">
 			<a class="navbar-brand" href="home.jsp" style="margin-right: 60px"> <img src="images/png/Asset1.png" width="" height="" class="d-inline-block align-top" alt=""></a>
 				<!-- Toggle button -->
@@ -59,62 +59,25 @@
 			</div>
 		</nav>
 <!-- Navigation ends -->
+<h1 style="text-align: center; margin-top: 50px; font-weight: bolder;">SAVED ITEMS</h1>
 
-<!-- product add form start -->
-		<div class="container p-3 " style="background-color: #C0DBEA; margin-top: 100px; border-radius: 2%; opacity: 90%;">
-			<form action="productaddservlet" method="post" enctype="multipart/form-data" style="margin-right: 10px;">
-			<div class="container  col-12 w-auto text-center mt-3" style="">
-				<h2 style="font-weight: bold;">ADD PRODUCT</h2>
-			</div>
-			<div class="row allign-items-center mt-5 pl-2">
-				<div class="row my-3">
-					<label  class="col-sm-2 col-form-label text-center fw-bolder" >Photo</label>
-						<div class="col-sm-10 ">
-      						<input type="file" class="form-control" id="inputGroupFile02" name="photo">
-   						</div>
+<!-- product history start -->
+		<% for(int i =0; i<20; i++ )
+		{ %>
+		<div class="row my-5 " style="margin-left: 80px; margin-right: 80px;">
+			<% for(int x=0; x<4; x++) {  %>
+				<div class="card col-3  mx-5" style="width: 18rem;">
+  					<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPsAAACUCAMAAABiDq8bAAAAA1BMVEWAgICQdD0xAAAAO0lEQVR4nO3BMQEAAADCoPVPbQ0PoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL4MkbAAAU2IE7MAAAAASUVORK5CYII=" class="card-img-top" alt="..." >
+  						<div class="card-body">
+    						<h5 class="card-title">Card title</h5>
+    						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+   							 <a href="#" class="btn btn-primary">Go somewhere</a>
+ 						</div>
 				</div>
-				<div class="row my-3 ">
-					<label class="col-sm-2 col-form-label text-center fw-bolder">Name</label>
-   					<div class="col-sm-10 ">
-   						<input class="form-control" type="text" placeholder="Add Name to a Product" aria-label="default input example" name="productName" >
-   					</div>
-				</div>
-				<div class="row my-3 ">
-					<label class="col-sm-2 col-form-label text-center fw-bolder">Description</label>
-					<div class="col-sm-10">
-						<input class="form-control" type="text" placeholder="Add Product Description" aria-label="default input example" name="productDescription" >
-					</div>
-				</div>
-				<div class="row my-3 ">
-					<label class="col-sm-2 col-form-label text-center fw-bolder">Quantity</label>
-					<div class="col-sm-10">
-						<input class="form-control" type="text" placeholder="Add Product Quantity" aria-label="default input example" name="productQty" >
-					</div>
-				</div>
-				<div class="row my-3 ">
-					<label class="col-sm-2 col-form-label text-center fw-bolder">Price</label>
-					<div class="col-sm-10">
-						<input class="form-control" type="text" placeholder="Add Product Price" aria-label="default input example" name="productPrice" >
-					</div>
-				</div>
-				<div class="row my-3 ">
-					<div class="row" style="margin-left: 250px;">
-						<div class="col-6">
-							<input class="btn btn-primary col-6 m-5" type="submit" value="Save" style="width: 70px;">
-						</div>
-						<div class="col-6">
-						<input class="btn btn-primary col-6 m-5" type="reset" value="reset" style="width: 70px;">
-						</div>
-					</div>
-				</div>
-   				
-   					
-				
-			</div>
-		</form>
-	</div>
+				<% } %>
+		</div>	
 		
-			
+		<% } %>
 		
 
 	</body>
