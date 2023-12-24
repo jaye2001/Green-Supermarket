@@ -115,9 +115,12 @@
       <div class="row" style="margin-left: 50px; margin-bottom: 30px;">
        <div class="col-sm-3">
         <div class="card" style="width: 18rem">
-            <img class="card-img-top" src="img/<%= product.GetImage() %>" alt="Card image cap" style="border-radius: 15px; height: 200px; width: 18rem; object-fit: contain;">
+            <img class="card-img-top" src="img/<%= product.GetImage() %>" alt="Card image cap" style="border-radius: 15px; height: 200px; width: 18rem;">
             <div class="card-body">
-            <a href="googlr.com" class="product"><%= product.GetName() %></a>    
+            <a href="googlr.com" class="product"><%= product.GetName() %></a>   
+            <p class = "product"><%=product.GetPrice() %></p> 
+            <a href="productdet?productid=<%= product.GetId() %>" class="buyBut"> Buy</a>
+            
             <div class="check d-flex flex-row-reverse" >
             <div style="position: relative; width: 10px; height: 10px; " >
                 
