@@ -25,13 +25,24 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>userprofileservlet</display-name>
-    <servlet-name>userprofileservlet</servlet-name>
-    <servlet-class>userprofileservlet</servlet-class>
+    <display-name>userprofileServlet</display-name>
+    <servlet-name>userprofileServlet</servlet-name>
+    <servlet-class>userprofileServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>userprofileservlet</servlet-name>
-    <url-pattern>/userprofileservlet</url-pattern>
+    <servlet-name>userprofileServlet</servlet-name>
+    <url-pattern>/userprofileServlet</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <description></description>
+    <display-name>SavedServlet</display-name>
+    <servlet-name>SavedServlet</servlet-name>
+    <servlet-class>SavedServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SavedServlet</servlet-name>
+    <url-pattern>/SavedServlet</url-pattern>
+  </servlet-mapping>
+
 
 </web-app>
