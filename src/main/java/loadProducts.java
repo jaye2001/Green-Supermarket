@@ -33,11 +33,11 @@ public class loadProducts extends HttpServlet {
 	    	
 	    	while(rs.next()) {
 	    		Product product = new Product();
-	    		product.Set_values(rs.getString("image"), rs.getString("name"));
+	    		product.Set_values(rs.getInt("id"), rs.getString("image"), rs.getString("name"), rs.getString("description"), rs.getFloat("price"));
 	    		
 	    		products.add(product);
 	    	}
-	    	
+	    	conn.close();
 	    	request.setAttribute("products", products);
 	    	RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
 	    	rd.forward(request, response);
