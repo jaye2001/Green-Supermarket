@@ -9,12 +9,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Green Super Market</title>
         <script src="https://kit.fontawesome.com/d6b58aaea7.js" crossorigin="anonymous"></script>
-        <link href="productdetail.css" rel="stylesheet">
+        <link href="css/productdetail.css" rel="stylesheet">
          
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <script src="./assets/js/cart.js"></script>
+        <script src="./js/cart.js"></script>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light fixed-top nav-bar" style="background-color: #CAEFE6">
@@ -37,10 +37,10 @@
 
                 <ul class="navbar-nav mb-2 mb-lg-0 mx-auto" >
                     <li class="nav-item active">
-                        <a class="nav-link px-2" href="newjsp.jsp" style="color:#0D6C5F;font-family: Josefin Sans">Home</a>
+                        <a class="nav-link px-2" href="home.jsp" style="color:#0D6C5F;font-family: Josefin Sans">Home</a>
                     </li>
                     <li class="nav-item px-2">
-                        <a class="nav-link" href="newjsp.jsp" style="color:#0D6C5F;font-family: Josefin Sans">Cart</a>
+                        <a class="nav-link" href="Cart" style="color:#0D6C5F;font-family: Josefin Sans">Cart</a>
                     </li>
                     <li class="nav-item px-2">
                         <a class="nav-link" href="newjsp.jsp" style="color:#0D6C5F;font-family: Josefin Sans">Saved</a>
@@ -126,13 +126,20 @@
                         </div>
                         <div class="right-content">
                             <div class="quantity buttons_added">
-                                <input type="button" value="-" class="minus" onclick="reduceQuantity()"><input id="quantityValue" type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus" onclick="addQuantity()">
+                                <input type="button" value="-" class="minus" onclick="reduceQuantity()"><input class="quantityValue input-text qty text" type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus" onclick="addQuantity()">
                             </div>
                         </div>
                     </div>
                     <div class="total">
                         <h4 id="itemPrice" data-price="<%= product.GetPrice() %>">Total: $<%= product.GetPrice() %></h4>
-                        <div class="main-border-button"><a href="#">Add To Cart</a></div>
+                        <form action="AddToCart" method="POST">
+					    <input type="hidden" name="prid" value="<%= product.GetId() %>">
+					    <input type="hidden" name="qty" class="quantityValue" value="1"> <!-- Assuming this is your quantity field -->
+					    <div class="main-border-button">
+					        <input type="submit" value="Add To Cart" ">
+					    </div>
+					   </form>
+
                     </div>
                 </div>
                 <form action="submitFeedback" method="POST" id="feedbackForm">
@@ -163,11 +170,24 @@
         			</div>
     			</div>
     			</form>
+    			
+    			
+    			
                 
             </div>
             </div>
         </div>
     </section>
-   
+   	<script>
+    document.getElementById('feedbackForm').onsubmit = function() {
+        var qty = parseInt(document.getElementById('quantityValue').value);
+        if (isNaN(qty) || qty <= 0) {
+            alert("Please enter a valid quantity.");
+            return false;
+        }
+        return true;
+    };
+   </script>
+   	
     </body>
 </html>

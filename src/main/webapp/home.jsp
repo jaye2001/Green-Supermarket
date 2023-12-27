@@ -11,7 +11,7 @@
         
         <script src="https://kit.fontawesome.com/b805876efb.js" crossorigin="anonymous"></script>
         
-        <link href="home.css" rel="stylesheet">
+        <link href="css/home.css" rel="stylesheet">
         <title>JSP Page</title>
     </head>
     <body>
@@ -39,10 +39,10 @@
 
                 <ul class="navbar-nav mb-2 mb-lg-0 mx-auto" >
                     <li class="nav-item active">
-                        <a class="nav-link px-2" href="newjsp.jsp" style="color:#0D6C5F;font-family: Josefin Sans">Home</a>
+                        <a class="nav-link px-2" href="home.jsp" style="color:#0D6C5F;font-family: Josefin Sans">Home</a>
                     </li>
                     <li class="nav-item px-2">
-                        <a class="nav-link" href="newjsp.jsp" style="color:#0D6C5F;font-family: Josefin Sans">Cart</a>
+                        <a class="nav-link" href="Cart" style="color:#0D6C5F;font-family: Josefin Sans">Cart</a>
                     </li>
                     <li class="nav-item px-2">
                         <a class="nav-link" href="newjsp.jsp" style="color:#0D6C5F;font-family: Josefin Sans">Saved</a>
@@ -105,7 +105,7 @@
 		
 	<% 
 		if(request.getAttribute("products")== null){
-			response.sendRedirect("loadProducts");
+			response.sendRedirect("LoadProducts");
 			
 		}else{
 			List<Product> products = (List<Product>) request.getAttribute("products"); 
