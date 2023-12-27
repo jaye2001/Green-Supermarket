@@ -149,12 +149,13 @@
   text-align: right;
 }
 
-.total .main-border-button a {
+.total .main-border-button input {
+  background-color: #CAEFE6;
   border-color: #CAEFE6;
   color: #0D6C5F;
 }
 
-.total .main-border-button a:hover {
+.total .main-border-button input:hover {
   color: #fff;
   background-color: #2a2a2a;
 }
