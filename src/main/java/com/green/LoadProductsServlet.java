@@ -31,14 +31,14 @@ public class LoadProductsServlet extends HttpServlet {
 	    	Connection conn = DriverManager.getConnection(url, uname, password);
 	    	Statement stmt= conn.createStatement();
 	    	
-	    	String query="SELECT * FROM products;";
+	    	String query="SELECT * FROM products where status = 1;";
 	    	ResultSet rs = stmt.executeQuery(query);
 	    	
 	    	List<Product> products = new ArrayList<Product>();
 	    	
 	    	while(rs.next()) {
 	    		Product product = new Product();
-	    		product.Set_values(rs.getInt("prid"), rs.getString("image"), rs.getString("name"), rs.getString("description"), rs.getFloat("price"));
+	    		product.Set_values(rs.getInt("prid"), rs.getString("name"), rs.getString("description"), rs.getFloat("price"));
 	    		
 	    		products.add(product);
 	    	}

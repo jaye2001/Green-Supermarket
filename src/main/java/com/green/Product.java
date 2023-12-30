@@ -8,10 +8,10 @@ public class Product {
 	private String description;
 	private float price;
 	
-	public void Set_values(int _id, String _image, String _name, String _description, float _price) {
+	public void Set_values(int _id, String _name, String _description, float _price) {
 		
 		id = _id;
-		image = _image;
+		//image = _image;
 		name = _name;
 		description = _description;
 		price = _price;
