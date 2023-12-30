@@ -11,13 +11,15 @@ import java.io.IOException;
 /**
  * Servlet implementation class userprofileservlet
  */
-public class userprofileservlet extends HttpServlet {
+
+@WebServlet("/Userprofileservlet")
+public class Userprofileservlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public userprofileservlet() {
+    public Userprofileservlet() {
         super();
         // TODO Auto-generated constructor stub
     }

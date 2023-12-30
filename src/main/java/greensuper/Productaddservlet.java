@@ -1,6 +1,6 @@
-
 package greensuper;
 import jakarta.servlet.ServletException;
+
 
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
@@ -38,13 +38,10 @@ public class Productaddservlet extends HttpServlet {
 		
 		Part filePart = request.getPart("photo");
 		InputStream inputStream = filePart.getInputStream();
-		//out.println("<html><body><b>Successfully Inserted"
-         //       + "</b></body></html>");
 		
 		
 		try {
-			//out.println("<html><body><b>Successfully Inserted"
-             //       + "</b></body></html>");
+			
 			Connection con = dbconnection.initializeDatabase();
 			PreparedStatement st = con.prepareStatement("insert into products (name, description, quantity, status) values(?, ?, ?, ?)");
 			st.setString(1, request.getParameter("productName"));
