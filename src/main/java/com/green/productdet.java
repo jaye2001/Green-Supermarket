@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,53 +21,82 @@ import jakarta.servlet.http.HttpServletResponse;
  */
 @WebServlet("/productdet")
 public class productdet extends HttpServlet {
-    
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
-        String url = "jdbc:mysql://localhost:3306/greensupermarket";
-        String uname = "root";
-        String password = "";
-        int p_Id = Integer.parseInt(request.getParameter("productid"));
-        
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection(url, uname, password);
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-            String productQuery = "SELECT * FROM products WHERE prid = ?;";
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String url = "jdbc:mysql://localhost:3306/greens";
+	    String uname = "root";
+	    String password = "";
+	    int u_Id = 1;
+	    int p_Id = Integer.parseInt(request.getParameter("productid"));
+	    
+	    try {
+	    	
+	    	Class.forName("com.mysql.cj.jdbc.Driver");
+	    	Connection conn = DriverManager.getConnection(url, uname, password);
+	    	Statement stmt= conn.createStatement();
+	    	
+	    	/*String query="SELECT * FROM product;";
+	    	ResultSet rs = stmt.executeQuery(query);
+	    	
+	    	List<Product> products = new ArrayList<Product>();
+	    	
+	    	while(rs.next()) {
+	    		Product product = new Product();
+	    		product.Set_values(rs.getInt("id"), rs.getString("image"), rs.getString("name"), rs.getString("description"), rs.getFloat("price"));
+	    		
+	    		products.add(product);
+	    	}*/
+	    	
+	    	String query="SELECT * FROM product where id = ?;";
 
-            Product product = new Product();
-            List<FeedbackEntry> feedbackList = new ArrayList<>();
+	    	List<Product> products = new ArrayList<Product>();
+	    	Product product = new Product();
+	    	List<FeedbackEntry> feedbackList = new ArrayList<>();
 
-            // Fetching product details
-            try (PreparedStatement productStatement = conn.prepareStatement(productQuery)) {
-                productStatement.setInt(1, p_Id);
-                ResultSet rs = productStatement.executeQuery();
 
-                if (rs.next()) {
-                    product.Set_values(rs.getInt("prid"), rs.getString("image"), rs.getString("name"), rs.getString("description"), rs.getFloat("price"));
-                }
-            }
+	    	try(PreparedStatement productStatement = conn.prepareStatement(query)){
+	    		productStatement.setInt(1, p_Id);
+	    		ResultSet rs = productStatement.executeQuery();
 
-            // Assuming you have a similar structure for fetching feedback
-            // String feedbackQuery = "Your feedback query here";
+	    		rs.next();
 
-            // Fetching feedback
-            // Your feedback fetching code
+	    		
+	    		product.Set_values(rs.getInt("id"), rs.getString("name"), rs.getString("description"), rs.getFloat("price"));
+	    	}
+	    	String feedbackQuery = "SELECT u.name, r.message FROM reviews r JOIN user u ON r.User_id = u.id WHERE r.product_id = ?";
+	    	 try (PreparedStatement feedbackStatement = conn.prepareStatement(feedbackQuery)) {
+	    	     feedbackStatement.setInt(1, p_Id);
+	    	     ResultSet rs = feedbackStatement.executeQuery();
 
-            conn.close();
-            
-            request.setAttribute("product", product);
-            request.setAttribute("feedbackList", feedbackList);
-            RequestDispatcher rd = request.getRequestDispatcher("productDetail.jsp");
-            rd.forward(request, response);
-            
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
-        
-        RequestDispatcher rd = request.getRequestDispatcher("productDetail.jsp");
-        rd.forward(request, response);
+	    	     
+	    	     while (rs.next()) {
+	    	    	 FeedbackEntry feedbackEn = new FeedbackEntry();
+	    	    	 feedbackEn.Set_values(rs.getString("name"), rs.getString("message"));
+	    	         
+	    	         feedbackList.add(feedbackEn);
+	    	     }
+	    	 	}
 
-    }
+	    	     
+	    	conn.close();
+	    	
+	    	request.setAttribute("feedbackList", feedbackList);
+	    	
+	    	request.setAttribute("product", product);
+	    	RequestDispatcher rd = request.getRequestDispatcher("productDetail.jsp");
+	    	rd.forward(request, response);
+	    	
+	    }catch(Exception e) {
+	    	e.printStackTrace();
+	    }
+	}
+
+	
+
 }
-

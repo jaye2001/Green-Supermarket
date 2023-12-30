@@ -15,6 +15,11 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/loadProducts")
 public class loadProducts extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url = "jdbc:mysql://localhost:3306/greens";
 	    String uname = "root";
@@ -33,7 +38,7 @@ public class loadProducts extends HttpServlet {
 	    	
 	    	while(rs.next()) {
 	    		Product product = new Product();
-	    		product.Set_values(rs.getInt("id"), rs.getString("image"), rs.getString("name"), rs.getString("description"), rs.getFloat("price"));
+	    		product.Set_values(rs.getInt("id"), rs.getString("name"), rs.getString("description"), rs.getFloat("price"));
 	    		
 	    		products.add(product);
 	    	}
