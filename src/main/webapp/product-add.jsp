@@ -97,15 +97,15 @@
 						<input class="form-control" type="text" placeholder="Add Product Price" aria-label="default input example" name="productPrice" >
 					</div>
 				</div>
-				<div class="row my-3 ">
-					<div class="row" style="margin-left: 250px;">
+				<div class="row my-3 text-center" >
+					
 						<div class="col-6">
-							<input class="btn btn-primary col-6 m-5" type="submit" value="Save" style="width: 70px;">
+							<input class="btn btn-primary  m-5" type="submit" value="Save" style="width: 70px;">
 						</div>
 						<div class="col-6">
-						<input class="btn btn-primary col-6 m-5" type="reset" value="reset" style="width: 70px;">
+						<input class="btn btn-primary  m-5" type="reset" value="reset" style="width: 70px;">
 						</div>
-					</div>
+					
 				</div>
    				
    					
