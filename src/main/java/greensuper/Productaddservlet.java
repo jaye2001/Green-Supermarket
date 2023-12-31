@@ -43,18 +43,19 @@ public class Productaddservlet extends HttpServlet {
 		try {
 			
 			Connection con = dbconnection.initializeDatabase();
-			PreparedStatement st = con.prepareStatement("insert into products (name, description, quantity, status, price ) values(?, ?, ?, ?, ?)");
+			PreparedStatement st = con.prepareStatement("insert into products (name, description, quantity, prpht, status, price ) values(?, ?, ?, ?, ?, ?)");
 			st.setString(1, request.getParameter("productName"));
 			st.setString(2, request.getParameter("productDescription"));
 			st.setInt(3, Integer.valueOf(request.getParameter("productQty")));
-			//st.setBlob(4, inputStream);
+			st.setBlob(4, inputStream);
 			boolean status = true;
-			st.setBoolean(4, status);
+			st.setBoolean(5, status);
 			float price = Float.parseFloat(request.getParameter("productPrice"));
-			st.setFloat(5, price);
+			st.setFloat(6, price);
 			
 			st.executeUpdate();
 			st.close(); 
+			
           con.close();
            
             out.println("<html><body><b>Successfully Inserted"

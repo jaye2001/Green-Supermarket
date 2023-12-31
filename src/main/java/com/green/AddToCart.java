@@ -10,14 +10,15 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
+import jakarta.servlet.http.HttpSession;
 import code.dbconnection;
 
 @WebServlet("/AddToCart")
 public class AddToCart extends HttpServlet {
     
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int userId = 1; // Placeholder for future user implementation
+    	HttpSession session = request.getSession();
+	    int userId = (int) session.getAttribute("UserId");
         int productId = Integer.parseInt(request.getParameter("prid"));
         int quantity = Integer.parseInt(request.getParameter("qty"));
         

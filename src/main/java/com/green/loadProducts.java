@@ -7,13 +7,16 @@ import java.util.List;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
 
 
 @WebServlet("/loadProducts")
+@MultipartConfig
 public class loadProducts extends HttpServlet {
 	/**
 	 * 
@@ -38,7 +41,8 @@ public class loadProducts extends HttpServlet {
 	    	
 	    	while(rs.next()) {
 	    		Product product = new Product();
-	    		product.Set_values(rs.getInt("id"), rs.getString("name"), rs.getString("description"), rs.getFloat("price"));
+	    		product.Set_values(rs.getInt("id"), rs.getBlob("prpht"), rs.getString("name"), rs.getString("description"), rs.getFloat("price"));
+	    		
 	    		
 	    		products.add(product);
 	    	}

@@ -6,6 +6,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,6 +17,7 @@ import java.util.List;
 
 import code.dbconnection;
 
+@WebServlet("/Cart")
 public class Cart extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     public Cart() {
@@ -23,7 +26,9 @@ public class Cart extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int userId = 1;
+		HttpSession session = request.getSession();
+	    int userId = (int) session.getAttribute("UserId");
+		
 		
 		try (Connection conn = dbconnection.initializeDatabase()) {
             String selectCartQuery = "SELECT * FROM cart JOIN products ON cart.prid = products.prid WHERE cart.UserId = ?;";
@@ -36,7 +41,7 @@ public class Cart extends HttpServlet {
                 cartStmt.setInt(1, userId); // Replace with actual user ID when implemented
                 rs = cartStmt.executeQuery();
                 while(rs.next()) {
-                	CartProduct cartItem = new CartProduct(rs.getInt("prid"), rs.getString("image"), rs.getString("name"), rs.getString("description"), rs.getFloat("price"), rs.getInt("QTY"));
+                	CartProduct cartItem = new CartProduct(rs.getInt("prid"), rs.getBlob("prpht"), rs.getString("name"), rs.getString("description"), rs.getFloat("price"), rs.getInt("QTY"));
                 	cartItemList.add(cartItem);
                 }
             }

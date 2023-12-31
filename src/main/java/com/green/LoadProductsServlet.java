@@ -38,7 +38,7 @@ public class LoadProductsServlet extends HttpServlet {
 	    	
 	    	while(rs.next()) {
 	    		Product product = new Product();
-	    		product.Set_values(rs.getInt("prid"), rs.getString("name"), rs.getString("description"), rs.getFloat("price"));
+	    		product.Set_values(rs.getInt("prid"), rs.getBlob("prpht"), rs.getString("name"), rs.getString("description"), rs.getFloat("price"));
 	    		
 	    		products.add(product);
 	    	}
