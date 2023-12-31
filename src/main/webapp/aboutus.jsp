@@ -56,7 +56,7 @@
                     <input type="text" placeholder="Search Product" class="search-bar-input">
                  </div>
                  
-                <img src="image/kaku.jpg" class="user-pic">
+                <img src="images/png/dummy.png" class="user-pic">
         </div>
     </nav>
 
@@ -88,19 +88,19 @@
                         <div class="row g-3">
                             <div class="col-6 text-start">
                                 <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s"
-                                    src="image/kaku.jpg">
+                                    src="images/png/about1.jpeg">
                             </div>
                             <div class="col-6 text-start">
-                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.3s" src="image/kaku.jpg"
+                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.3s" src="images/png/about2.jpeg"
                                     style="margin-top: 25%;">
                             </div>
                             <div class="col-6 text-end">
                                 <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.5s"
-                                    src="image/kaku.jpg">
+                                    src="images/png/about1.jpeg">
                             </div>
                             <div class="col-6 text-end">
                                 <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.7s"
-                                    src="image/kaku.jpg">
+                                   src="images/png/about2.jpeg">
                             </div>
                         </div>
                     </div>
@@ -154,7 +154,7 @@
                     <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="team-item text-center rounded overflow-hidden">
                             <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="image/kaku.jpg" alt="">
+                                <img class="img-fluid" src="images/png/dummy.png" alt="">
                             </div>
                             <h5 class="mb-4">Chef Beverly Ramsburg
                             </h5>
@@ -166,7 +166,7 @@
                     <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                         <div class="team-item text-center rounded overflow-hidden">
                             <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="image/kaku.jpg" alt="">
+                                <img class="img-fluid" src="images/png/dummy.png" alt="">
                             </div>
                             <h5 class="mb-4">
                                 Chef Andres Cantre</h5>
@@ -178,7 +178,7 @@
                     <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                         <div class="team-item text-center rounded overflow-hidden">
                             <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="image/kaku.jpg" alt="">
+                                <img class="img-fluid" src="images/png/dummy.png" alt="">
                             </div>
                             <h5 class="mb-4">Chef Gabriel Liccketto</h5>
                             <small>Deputy Chef</small>
@@ -189,7 +189,7 @@
                     <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
                         <div class="team-item text-center rounded overflow-hidden">
                             <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="image/kaku.jpg" alt="">
+                                <img class="img-fluid" src="images/png/dummy.png" alt="">
                             </div>
                             <h5 class="mb-4">Chef Phillip Krenzer</h5>
                             <small>Station Chef</small>
@@ -200,7 +200,7 @@
                     <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
                         <div class="team-item text-center rounded overflow-hidden">
                             <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="image/kaku.jpg" alt="">
+                                <img class="img-fluid" src="images/png/dummy.png" alt="">
                             </div>
                             <h5 class="mb-4">Chef Phillip Krenzer</h5>
                             <small>Station Chef</small>
@@ -211,7 +211,7 @@
                     <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
                         <div class="team-item text-center rounded overflow-hidden">
                             <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="image/kaku.jpg" alt="">
+                                <img class="img-fluid" src="images/png/dummy.png" alt="">
                             </div>
                             <h5 class="mb-4">Chef Phillip Krenzer</h5>
                             <small>Station Chef</small>

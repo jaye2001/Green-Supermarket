@@ -56,7 +56,7 @@ function reduceQuantity() {
 
 function updateUI() {
     var total = (quantity * price).toFixed(2);
-    document.getElementById('itemPrice').innerText = 'Total: $' + total;
+    document.getElementById('itemPrice').innerText = 'Total: LKR' + total;
 
     var quantityItems = document.querySelectorAll('.quantityValue');
     quantityItems.forEach(function(element) {

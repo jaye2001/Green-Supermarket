@@ -31,20 +31,17 @@
 				<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
     			  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
     			    <li class="nav-item">
-    			      <a class="nav-link "  href="#">Home</a>
+    			      <a class="nav-link "  href="home.jsp">Home</a>
     			    </li>
     			    <li class="nav-item">
-    			      <a class="nav-link" href="#">Cart</a>
+    			      <a class="nav-link" href="Cart">Cart</a>
     			    </li>
     			    
     			    <li class="nav-item">
     			      <a class="nav-link" href="">Profile</a>
     			    </li>
     			    <li class="nav-item">
-    			      <a class="nav-link" href="">About us</a>
-    			    </li>
-    			    <li class="nav-item">
-    			      <a class="nav-link" href="">Contact us</a>
+    			      <a class="nav-link" href="aboutus.jsp">About us</a>
     			    </li>
     			  </ul>
     			  <form class="d-flex" role="search">
