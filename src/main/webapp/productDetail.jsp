@@ -1,6 +1,7 @@
 <%@page import="com.green.FeedbackEntry"%>
 <%@page import="com.green.Product"%>
 <%@page import="java.util.List"%>
+<%@page import="java.util.Base64"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,7 +17,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <script src="./js/cart.js"></script>
     </head>
-    <body>
+    <body style="background-color: #FAFAF6;">
         <nav class="navbar navbar-expand-lg navbar-light fixed-top nav-bar" style="background-color: #CAEFE6">
         <div class="container"  >
             <a class="navbar-brand me-2" href="Homepage.html">
@@ -90,6 +91,9 @@
  	response.sendRedirect("home.jsp");
  }
  */
+ byte[] imageBytes = product.GetImage();
+ String imageBase64 = Base64.getEncoder().encodeToString(imageBytes);
+ 
 %>
 
 
@@ -100,9 +104,12 @@
             <div class="row">
                 <div class="col-lg-8">
                 <div class="left-images">
-                    <img src="img/<%= product.GetImage() %>">
-                    <img src="img/<%= product.GetImage() %>">
-                    <p><%= product.GetImage() %></p>
+                
+                
+	            
+                   
+                    <img src="data:image/*;base64, <%= imageBase64 %>">
+                   
                 </div>
             </div>
             <div class="col-lg-4">
@@ -146,7 +153,6 @@
                 <div class="feedback-container">
         			<p class="feedHead">Give us your feedback</p>
         			<textarea id="feedbackInput" placeholder="Write your feedback here..." name="message"></textarea>
-        			<input type="text" name="u_id" value="1" hidden="true">
         			<input type="text" name="p_id" value="<%= product.GetId() %>" hidden="true">
         			<input type="submit" value="Submit Feedback" class="feedbackButton"> 
 					

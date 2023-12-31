@@ -1,5 +1,6 @@
 <%@page import="com.green.Product"%>
 <%@page import="java.util.List"%>
+<%@page import="java.util.Base64"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -111,11 +112,14 @@
 			List<Product> products = (List<Product>) request.getAttribute("products"); 
 			for(Product product : products){
 				
+				byte[] imageBytes = product.GetImage();
+	            String imageBase64 = Base64.getEncoder().encodeToString(imageBytes);
 	%>
       <div class="row" style="margin-left: 50px; margin-bottom: 30px;">
        <div class="col-sm-3">
         <div class="card" style="width: 18rem">
-            <img class="card-img-top" src="img/<%= product.GetImage() %>" alt="Card image cap" style="border-radius: 15px; height: 200px; width: 18rem;">
+
+            <img class="card-img-top" src="data:image/*;base64, <%= imageBase64 %>" alt="Card image cap" style="border-radius: 15px; height: 200px; width: 18rem;">
             <div class="card-body">
             <a href="googlr.com" class="product"><%= product.GetName() %></a>   
             <p class = "product"><%=product.GetPrice() %></p> 

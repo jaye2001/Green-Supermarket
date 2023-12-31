@@ -15,7 +15,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
+import jakarta.servlet.http.HttpSession;
+import code.dbconnection;
 /**
  * Servlet implementation class productdet
  */
@@ -29,17 +30,14 @@ public class productdet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String url = "jdbc:mysql://localhost:3306/greens";
-	    String uname = "root";
-	    String password = "";
-	    int u_Id = 1;
+		
 	    int p_Id = Integer.parseInt(request.getParameter("productid"));
 	    
 	    try {
 	    	
-	    	Class.forName("com.mysql.cj.jdbc.Driver");
-	    	Connection conn = DriverManager.getConnection(url, uname, password);
-	    	Statement stmt= conn.createStatement();
+	    	
+	    	Connection conn = dbconnection.initializeDatabase();
+	    	//Statement stmt= conn.createStatement();
 	    	
 	    	/*String query="SELECT * FROM product;";
 	    	ResultSet rs = stmt.executeQuery(query);
@@ -53,7 +51,7 @@ public class productdet extends HttpServlet {
 	    		products.add(product);
 	    	}*/
 	    	
-	    	String query="SELECT * FROM product where id = ?;";
+	    	String query="SELECT * FROM products where prid = ?;";
 
 	    	List<Product> products = new ArrayList<Product>();
 	    	Product product = new Product();
@@ -67,9 +65,9 @@ public class productdet extends HttpServlet {
 	    		rs.next();
 
 	    		
-	    		product.Set_values(rs.getInt("id"), rs.getString("name"), rs.getString("description"), rs.getFloat("price"));
+	    		product.Set_values(rs.getInt("prid"),rs.getBlob("prpht"), rs.getString("name"), rs.getString("description"), rs.getFloat("price"));
 	    	}
-	    	String feedbackQuery = "SELECT u.name, r.message FROM reviews r JOIN user u ON r.User_id = u.id WHERE r.product_id = ?";
+	    	String feedbackQuery = "SELECT u.Fname, u.Lname, r.message FROM reviews r JOIN users u ON r.UserId = u.UserId WHERE r.prid = ?";
 	    	 try (PreparedStatement feedbackStatement = conn.prepareStatement(feedbackQuery)) {
 	    	     feedbackStatement.setInt(1, p_Id);
 	    	     ResultSet rs = feedbackStatement.executeQuery();
@@ -77,7 +75,7 @@ public class productdet extends HttpServlet {
 	    	     
 	    	     while (rs.next()) {
 	    	    	 FeedbackEntry feedbackEn = new FeedbackEntry();
-	    	    	 feedbackEn.Set_values(rs.getString("name"), rs.getString("message"));
+	    	    	 feedbackEn.Set_values(rs.getString("Fname") + rs.getString("Lname"), rs.getString("message"));
 	    	         
 	    	         feedbackList.add(feedbackEn);
 	    	     }
