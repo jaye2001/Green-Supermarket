@@ -32,25 +32,22 @@
 				<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
     			  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
     			    <li class="nav-item">
-    			      <a class="nav-link "  href="#">Home</a>
+    			      <a class="nav-link "  href="home.jsp">Home</a>
     			    </li>
     			    <li class="nav-item">
-    			      <a class="nav-link" href="#">Cart</a>
+    			      <a class="nav-link" href="/Cart">Cart</a>
     			    </li>
     			    
     			    <li class="nav-item">
     			      <a class="nav-link" href="">Profile</a>
     			    </li>
     			    <li class="nav-item">
-    			      <a class="nav-link" href="">About us</a>
+    			      <a class="nav-link" href="aboutus.jsp">About us</a>
     			    </li>
-    			    <li class="nav-item">
-    			      <a class="nav-link" href="">Contact us</a>
-    			    </li>
-    			  </ul>
+    			    
     			  <form class="d-flex" role="search">
     			    <input class="form-control me-2" type="search" placeholder="Disabled input" aria-label="Search" disabled>
-    			    <button class="btn btn-outline-dark text-light" style="border-color:gray; background-color:#81bcff;" type="submit" disabled>Search</button>
+    			    <button class="btn btn-outline-dark text-light" style="border-color:gray; background-color:#41A317;" type="submit" disabled>Search</button>
     			  </form>
     			</div>
     			<!-- user-profile -->

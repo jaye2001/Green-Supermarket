@@ -13,6 +13,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 
+
+
 @WebServlet("/LoadProducts")
 public class LoadProductsServlet extends HttpServlet {
 	/**

@@ -45,9 +45,7 @@
                     <li class="nav-item px-2">
                         <a class="nav-link" href="aboutus.jsp" style="color:#0D6C5F;font-family: Josefin Sans">About Us</a>
                     </li>
-                    <li class="nav-item px-2">
-                        <a class="nav-link" href="product-add.jsp" style="color:#0D6C5F;font-family: Josefin Sans">Add product</a>
-                    </li>
+                  
 
                 </ul>
                

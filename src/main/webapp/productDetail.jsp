@@ -10,6 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Green Super Market</title>
+        <link rel="icon" type="image/x-icon" href="images/png/Asset1.png">
         <script src="https://kit.fontawesome.com/d6b58aaea7.js" crossorigin="anonymous"></script>
         <link href="css/productdetail.css" rel="stylesheet">
          
@@ -48,7 +49,7 @@
     			  </ul>
     			  <form class="d-flex" role="search">
     			    <input class="form-control me-2" type="search" placeholder="Disabled input" aria-label="Search" disabled>
-    			    <button class="btn btn-outline-dark text-light" style="border-color:gray; background-color:#81bcff;" type="submit" disabled>Search</button>
+    			    <button class="btn btn-outline-dark text-light" style="border-color:gray; background-color:#41A317;" type="submit" disabled>Search</button>
     			  </form>
     			</div>
     			<!-- user-profile -->
@@ -104,7 +105,7 @@
                 
 	            
                    
-                    <img src="data:image/*;base64, <%= imageBase64 %>">
+                    <img src="data:image/*;base64, <%= imageBase64 %>" style="height: 600px;">
                    
                 </div>
             </div>
@@ -134,7 +135,7 @@
                         </div>
                     </div>
                     <div class="total">
-                        <h4 id="itemPrice" data-price="<%= product.GetPrice() %>">Total: $<%= product.GetPrice() %></h4>
+                        <h4 id="itemPrice" data-price="<%= product.GetPrice() %>">Total: LKR<%= product.GetPrice() %></h4>
                         <form action="AddToCart" method="POST">
 					    <input type="hidden" name="prid" value="<%= product.GetId() %>">
 					    <input type="hidden" name="qty" class="quantityValue" value="1"> <!-- Assuming this is your quantity field -->

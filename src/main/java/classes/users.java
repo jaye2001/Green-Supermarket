@@ -18,6 +18,7 @@ public class users {
 		this.email = _email;
 		this.roll = _user;
 		this.image = _image;
+		System.out.println(roll);
 	}
 	
 	public byte[] GetImage() {
