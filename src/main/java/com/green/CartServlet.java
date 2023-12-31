@@ -18,9 +18,9 @@ import java.util.List;
 import code.dbconnection;
 
 @WebServlet("/Cart")
-public class Cart extends HttpServlet {
+public class CartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    public Cart() {
+    public CartServlet() {
         super();
     }
 

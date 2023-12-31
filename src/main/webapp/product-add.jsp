@@ -36,9 +36,7 @@
     			    <li class="nav-item">
     			      <a class="nav-link" href="#">Cart</a>
     			    </li>
-    			    <li class="nav-item">
-    			      <a class="nav-link active fw-bolder" aria-current="page" href="">Saved</a>
-    			    </li>
+    			    
     			    <li class="nav-item">
     			      <a class="nav-link" href="">Profile</a>
     			    </li>

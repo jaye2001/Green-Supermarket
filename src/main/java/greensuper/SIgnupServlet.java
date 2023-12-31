@@ -113,10 +113,11 @@ public class SIgnupServlet extends HttpServlet {
  	 		 			if (user == true) {
  	 		 				
  	 		 				
- 	 	 					PreparedStatement st3 = con.prepareStatement("insert into userpht (UserId, pht) values(?, ?)");
+ 	 	 					PreparedStatement st3 = con.prepareStatement("UPDATE users SET image = ? WHERE userid = ?");
  	 	 					
- 	 	 					st3.setInt(1, userId);
- 	 	 					st3.setBlob(2, inputStream);
+ 	 	 					st3.setBlob(1, inputStream);
+ 	 	 					st3.setInt(2, userId);
+ 	 	 					
  	 	 					
  	 	 					st3.executeUpdate();
  	 	 					
