@@ -1,0 +1,45 @@
+@charset "UTF-8";
+.nav-link{
+    color: #0D6C5F;
+}
+
+.card{
+    border-radius: 15px;
+    width: 18rem;
+    background-color: #CAEFE6;
+}
+.card-img-top{
+    border-radius: 15px;
+}
+.product{
+    color: #0D6C5F;
+    font-family: Josefin Sans;
+}
+.buyBut {
+        background-color: #0D6C5F;
+        border: none;
+        border-radius: 10px;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        
+        display: inline-block;
+        font-size: 20px;
+        margin: 4px 2px;
+        cursor: pointer;
+}        
+/*.check{
+    position: relative;
+    width: 10px;
+    height: 10px;
+}*/
+
+.save-checkbox ~ .fa-heart{
+color: transparent;
+-webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: #0D6C5F;
+}
+.save-checkbox:checked ~ .fa-heart{
+	color:  #0D6C5F;
+}
