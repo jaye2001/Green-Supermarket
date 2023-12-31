@@ -1,4 +1,5 @@
 package greensuper;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 
 
@@ -58,8 +59,9 @@ public class Productaddservlet extends HttpServlet {
 			
           con.close();
            
-            out.println("<html><body><b>Successfully Inserted"
-                        + "</b></body></html>"); 
+          RequestDispatcher requestDispatcher = 
+	    			request.getRequestDispatcher("/home.jsp");
+			requestDispatcher.forward(request, response);
 	} 
 		
 		

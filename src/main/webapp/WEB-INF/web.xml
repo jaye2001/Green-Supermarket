@@ -33,7 +33,7 @@
     <servlet-name>userprofileServlet</servlet-name>
     <url-pattern>/userprofileServlet</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <description></description>
     <display-name>SavedServlet</display-name>
     <servlet-name>SavedServlet</servlet-name>
@@ -43,6 +43,14 @@
     <servlet-name>SavedServlet</servlet-name>
     <url-pattern>/SavedServlet</url-pattern>
   </servlet-mapping>
-
-
+  <servlet>
+    <description></description>
+    <display-name>RemoveproductServlet</display-name>
+    <servlet-name>RemoveproductServlet</servlet-name>
+    <servlet-class>greensuper.RemoveproductServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RemoveproductServlet</servlet-name>
+    <url-pattern>/RemoveproductServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -64,7 +64,7 @@ public class LoginServlet extends HttpServlet {
 				    
 				    users newusersUsers = new users();
 				    newusersUsers.user(rs.getString("Fname")+rs.getString("Lname"), rs.getInt("MbNumber"), rs.getString("email"), rs.getString("roll"), rs.getBlob("image"));
-				    
+				    System.out.println(rs.getString("roll"));				    
 				    session.setAttribute("newusersUsers", newusersUsers );
 				    
  					RequestDispatcher requestDispatcher = 

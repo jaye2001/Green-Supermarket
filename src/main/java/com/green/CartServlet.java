@@ -31,7 +31,7 @@ public class CartServlet extends HttpServlet {
 		
 		
 		try (Connection conn = dbconnection.initializeDatabase()) {
-            String selectCartQuery = "SELECT * FROM cart JOIN products ON cart.prid = products.prid WHERE cart.UserId = ?;";
+            String selectCartQuery = "SELECT * FROM cart JOIN products ON cart.prid = products.prid WHERE cart.UserId = ? and products.status = '1';";
             
             List<CartProduct> cartItemList = new ArrayList<CartProduct>();
             
