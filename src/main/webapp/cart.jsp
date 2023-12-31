@@ -94,7 +94,7 @@
                 		totalPrice += ((float)cartItem.getCartQty()) * cartItem.GetPrice();
                 		totalQty += cartItem.getCartQty();
                  %>
-                <div class="cart-item">
+                <div class="cart-item" style="border-color: #333333;border: 0;border-bottom: 1px;border-top: 1px;border-style: solid;">
                 <br>
 				    <div class="row">
 				        <div class="col-md-6">
@@ -104,11 +104,12 @@
 				        <div class="col-md-2"><%= cartItem.getCartQty() %></div>
 				        <div class="col-md-2"><%= ((float)cartItem.getCartQty()) * cartItem.GetPrice() %></div>
 				    </div>
+				    
+				</div>
 				    <%
                 	}
                 }
 				    %>
-				</div>
             </div>
             <br>
 			<form action="customerDetails.jsp" method="post" id="checkoutForm">
@@ -117,27 +118,11 @@
 			        <h4>Cart Summary</h4>
 			        <div>Total Items: <span id="total-items"><%= totalQty %></span></div>
 			        <div>Total Price: <span id="total-price">LKR <%= totalPrice %></span></div>
-			        <button type="submit" class="btn btn-primary mt-3">Checkout</button>
+			        <!-- <button type="submit" class="btn btn-primary mt-3">Checkout</button> -->
 			    </div>
 			</form>
-
-        </div>
-        
-        
-        
-        
-        
-        
-        
-        
-		  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
-		            integrity="sha384-0evHeTau6xJ0eze5LvC9aE6A1F5t7AVTPUfRrRJx9xgTR4fjDpFVVkHZPE7YsGPt" 
-		            crossorigin="anonymous"></script>
-            
-            
-            
-            
-			 <div id="paypalSpace" class="paymentImage" style="width: 50%; background-color:#FFFFFF; padding: 40px;">
+			
+			<div id="paypalSpace" class="paymentImage" style="width: 50%; background-color:#FFFFFF; padding: 40px;">
 
                     <script src="https://www.paypal.com/sdk/js?client-id=AZ2izagloQIvqTt2IxFFS893NINCNTUaUlPiAz6LwIsQK-J6Vz3cfoFIG1EpUdXpBvi2kL3HQvDbPCQB&currency=USD" data-sdk-integration-source="button-factory"></script>
             </div>
@@ -172,11 +157,20 @@
                  onApprove: function(data, actions) {
                      // Redirect to your PayPalServlet with the order ID
                      return actions.order.capture().then(function(details) {
-                         window.location.href = 'paymentStatus?orderID=' + data.orderID;
+                         window.location.href = 'paymentSuccess.jsp?orderID=' + data.orderID;
                      });
                  }
              }).render('#paypalSpace');
          </script> 
+        </div>
+		  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+		            integrity="sha384-0evHeTau6xJ0eze5LvC9aE6A1F5t7AVTPUfRrRJx9xgTR4fjDpFVVkHZPE7YsGPt" 
+		            crossorigin="anonymous"></script>
+            
+            
+            
+            
+			 
 
 </body>
 </html>
