@@ -21,7 +21,7 @@ import code.dbconnection;
  * Servlet implementation class productdet
  */
 @WebServlet("/productdet")
-public class productdet extends HttpServlet {
+public class productdetServlet extends HttpServlet {
 	
 	/**
 	 * 

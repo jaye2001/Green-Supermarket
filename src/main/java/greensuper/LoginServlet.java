@@ -17,6 +17,7 @@ import java.sql.SQLException;
 
 
 import code.dbconnection;
+import classes.users;
 
 /**
  * Servlet implementation class LoginServlet
@@ -40,7 +41,7 @@ public class LoginServlet extends HttpServlet {
 			con = dbconnection.initializeDatabase();
 			String email = request.getParameter("email");
 			String paswrd = request.getParameter("password");
- 			PreparedStatement st = con.prepareStatement("Select pswrd, UserId from users where email = ?");
+ 			PreparedStatement st = con.prepareStatement("Select * from users where email = ?");
  			st.setString(1, email);
  			ResultSet rs = st.executeQuery();
 			boolean login = false;
@@ -59,6 +60,13 @@ public class LoginServlet extends HttpServlet {
  					System.out.println(id);
  					HttpSession session = request.getSession();
 				    session.setAttribute("UserId", id );
+				    
+				    
+				    users newusersUsers = new users();
+				    newusersUsers.user(rs.getString("Fname")+rs.getString("Lname"), rs.getInt("MbNumber"), rs.getString("email"), rs.getString("roll"), rs.getBlob("image"));
+				    
+				    session.setAttribute("newusersUsers", newusersUsers );
+				    
  					RequestDispatcher requestDispatcher = 
  		 	    			request.getRequestDispatcher("/home.jsp");
  		 			requestDispatcher.forward(request, response);

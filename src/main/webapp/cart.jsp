@@ -2,12 +2,15 @@
     pageEncoding="UTF-8"%>
 <%@page import="com.green.CartProduct"%>
 <%@page import="java.util.List"%>
+<%@page import="classes.users" %>
+<%@page import="java.util.Base64"%>
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Green Super Market - Cart</title>
+    <link rel="icon" type="image/x-icon" href="images/png/Asset1.png">
     <script src="https://kit.fontawesome.com/d6b58aaea7.js" crossorigin="anonymous"></script>
     <link href="css/product-details.css" rel="stylesheet">
     <meta charset="utf-8">
@@ -18,49 +21,51 @@
 </head>
 <body>
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top nav-bar" style="background-color: #CAEFE6">
-        <div class="container">
-            <a class="navbar-brand me-2" href="Homepage.html">
-                <img src="Asset 1.png" height="50" alt="Logo" loading="lazy" style="margin-top: -1px;" />
-            </a>
-
-            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
-                data-mdb-target="#navbarButtonsExample" aria-controls="navbarButtonsExample" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarButtonsExample">
-                <ul class="navbar-nav mb-2 mb-lg-0 mx-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link px-2" href="home.jsp" style="color:#0D6C5F;font-family: Josefin Sans">Home</a>
-                    </li>
-                    <li class="nav-item px-2">
-                        <a class="nav-link" href="Cart" style="color:#0D6C5F;font-family: Josefin Sans">Cart</a>
-                    </li>
-                    <li class="nav-item px-2">
-                        <a class="nav-link" href="newjsp.jsp" style="color:#0D6C5F;font-family: Josefin Sans">Saved</a>
-                    </li>
-                    <li class="nav-item px-2">
-                        <a class="nav-link" href="#" style="color:#0D6C5F;font-family: Josefin Sans">Profile</a>
-                    </li>
-                    <li class="nav-item px-2">
-                        <a class="nav-link" href="#" style="color:#0D6C5F;font-family: Josefin Sans">About Us</a>
-                    </li>
-                    <li class="nav-item px-2">
-                        <a class="nav-link" href="#" style="color:#0D6C5F;font-family: Josefin Sans">Contact us</a>
-                    </li>
-                </ul>
-
-                <div class="search-bar">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Search Product" class="search-bar-input">
-                </div>
-
-                <img src="nidu.jpg" class="user-pic">
-            </div>
-        </div>
-    </nav>
+    <nav class="navbar navbar-light navbar-expand-lg py-4" style="background-color:#CAEFE6;">
+		<div class="container">
+			<a class="navbar-brand" href="home.jsp" style="margin-right: 60px"> <img src="images/png/Asset1.png" width="" height="" class="d-inline-block align-top" alt=""></a>
+				<!-- Toggle button -->
+				<button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      				<span class="navbar-toggler-icon"></span>
+    			</button>
+    			<!-- collapse navigation bar -->
+				<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    			  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    			    <li class="nav-item">
+    			      <a class="nav-link "  href="#">Home</a>
+    			    </li>
+    			    <li class="nav-item">
+    			      <a class="nav-link" href="#">Cart</a>
+    			    </li>
+    			    
+    			    <li class="nav-item">
+    			      <a class="nav-link" href="">Profile</a>
+    			    </li>
+    			    <li class="nav-item">
+    			      <a class="nav-link" href="">About us</a>
+    			    </li>
+    			    <li class="nav-item">
+    			      <a class="nav-link" href="">Contact us</a>
+    			    </li>
+    			  </ul>
+    			  <form class="d-flex" role="search">
+    			    <input class="form-control me-2" type="search" placeholder="Disabled input" aria-label="Search" disabled>
+    			    <button class="btn btn-outline-dark text-light" style="border-color:gray; background-color:#81bcff;" type="submit" disabled>Search</button>
+    			  </form>
+    			</div>
+    			<!-- user-profile -->
+    			<%  
+			
+			users newusersUsers = (users) session.getAttribute("newusersUsers"); 
+			
+				
+				byte[] imageBytes1 = newusersUsers.GetImage();
+	            String imageBase641 = Base64.getEncoder().encodeToString(imageBytes1);
+			
+			%>
+    			<a href="userprofileservlet?dataFromJSP=Userpr" style="margin-left: 50px; " ><img class="card-img-top" src="data:image/*;base64, <%= imageBase641 %>" alt="Card image cap" style="border-radius: 50%; width: 60px; height: 55px; border: 2px solid #555;"><!-- profile picture --></a>
+			</div>
+		</nav>
 
     <!-- Cart Section -->
     <section class="section" id="cart">

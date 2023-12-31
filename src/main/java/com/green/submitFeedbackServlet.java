@@ -25,7 +25,7 @@ import code.dbconnection;
  * Servlet implementation class submitFeedback
  */
 @WebServlet("/submitFeedback")
-public class submitFeedback extends HttpServlet {
+public class submitFeedbackServlet extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
